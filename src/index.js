@@ -66,10 +66,10 @@ const signup = (params) => {
 }
 
 const onSubmit = async () => {
-  await removeErrors()
   let email = document.getElementById('email');
   let emailVal = email.value;
 
+  await removeErrors()
   const params = {
     email: emailVal,//メールアドレスの値
     password: 'パスワードの値',
