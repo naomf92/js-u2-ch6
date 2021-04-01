@@ -67,14 +67,19 @@ const signup = (params) => {
 
 const onSubmit = async () => {
   let email = document.getElementById('email');
+  let password = document.getElementById('password');
+  let username = document.getElementById('username');
+  let name = document.getElementById('name');
   let emailVal = email.value;
-
+  let passwordVal = password.value;
+  let usernameVal = username.value;
+  let nameVal = name.value;
   await removeErrors()
   const params = {
     email: emailVal,//メールアドレスの値
-    password: 'パスワードの値',
-    username: 'ユーザー名の値',
-    name: '名前の値'
+    password: passwordVal,//パスワードの値
+    username: usernameVal,//ユーザー名の値
+    name: nameVal//名前の値
   }
   const results = await validate(params);
   if (true /* バリデーション成功時 */) {
@@ -87,6 +92,7 @@ const onSubmit = async () => {
       });
   } else {
     /* エラーメッセージを出力 */
+    addErrorMessage();
   }
 }
 
