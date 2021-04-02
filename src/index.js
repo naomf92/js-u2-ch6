@@ -92,7 +92,8 @@ const onSubmit = async () => {
       });
   } else {
     /* エラーメッセージを出力 */
-    addErrorMessage();
+    //バリテーション失敗　入力情報にミスがあったら
+    addErrorMessage();//エラーメッセージを表示
   }
 }
 
