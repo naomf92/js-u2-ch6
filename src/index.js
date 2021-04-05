@@ -82,7 +82,7 @@ const onSubmit = async () => {
     name: nameVal//名前の値
   }
   const results = await validate(params);
-  if (true /* バリデーション成功時 */) {
+  if (true /* バリデーション成功時 */) {//paramsの中身にミスがなかったら(要件を満たしていたら)
     signup(params)
       .then((json) => {
         alert(json.message);
