@@ -82,7 +82,8 @@ const onSubmit = async () => {
     name: nameVal//名前の値
   }
   const results = await validate(params);
-  if (results === 'success') {//バリデーション成功時 paramsの中身が要件を満たしていたら
+  if (results[0] && results[1] && results[2] && results[3] === 'success') {
+    //バリデーション成功時 paramsの中身が要件を満たしていたら
     signup(params)
       .then((json) => {
         alert(json.message);
@@ -91,8 +92,7 @@ const onSubmit = async () => {
         alert(err.message);
       });
   } else {
-    /* エラーメッセージを出力 */
-    //バリテーション失敗　入力情報にミスがあったら
+    //エラーメッセージを出力 バリテーション失敗 入力情報にミスがあったら
     addErrorMessage();//エラーメッセージを表示
   }
 }
