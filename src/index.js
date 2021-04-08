@@ -82,7 +82,8 @@ const onSubmit = async () => {
     name: nameVal//名前の値
   }
   const results = await validate(params);
-  if (results[0] && results[1] && results[2] && results[3] === 'success') {
+  if (results[0].success) {
+    console.log(results[0].success)
     //バリデーション成功時 paramsの中身が要件を満たしていたら
     signup(params)
       .then((json) => {
