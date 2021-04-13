@@ -91,13 +91,21 @@ const onSubmit = async () => {
       .catch((err) => {
         alert(err.message);
       });
-  } else if(){
+  } else {//エラーメッセージを出力 バリテーション失敗 入力情報にミスがあったら
 
-  } else {
-    //エラーメッセージを出力 バリテーション失敗 入力情報にミスがあったら
-    results.forEach(result => {
-      addErrorMessage(result.type, result.message);
-    });
+    if(results[0].success || results[1].success || results[2].success || results[3].success) {
+      results.forEach(result => {//何個かミス
+        //addErrorMessage(result.type, result.message);
+      });
+    } else {
+      results.forEach(result => {//項目全部ミス
+        addErrorMessage(result.type, result.message);
+      });
+    }
+
+    // results.forEach(result => {
+    //   addErrorMessage(result.type, result.message);
+    // });
   }
 }
 
