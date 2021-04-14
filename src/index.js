@@ -92,20 +92,11 @@ const onSubmit = async () => {
         alert(err.message);
       });
   } else {//エラーメッセージを出力 バリテーション失敗 入力情報にミスがあったら
-
-    if(results[0].success || results[1].success || results[2].success || results[3].success) {
-      results.forEach(result => {//何個かミス
-        //addErrorMessage(result.type, result.message);
-      });
-    } else {
-      results.forEach(result => {//項目全部ミス
+    results.forEach(result => {
+      if(!result.success) {
         addErrorMessage(result.type, result.message);
-      });
-    }
-
-    // results.forEach(result => {
-    //   addErrorMessage(result.type, result.message);
-    // });
+      }
+    });
   }
 }
 
