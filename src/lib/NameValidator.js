@@ -16,10 +16,8 @@ export default class extends BaseValidator {
       });
   }
   _checkFormat() {
-    /*
-      名前は必ず一つのスペースを含みます。
-      名前には半角英数字のみが利用可能です。
-    */
+    /*名前は必ず一つのスペースを含みます。名前には半角英数字のみが利用可能です。*/
+    const re = /[a-zA-Z0-9]+\s[a-zA-Z0-9]/
   }
 
 }
