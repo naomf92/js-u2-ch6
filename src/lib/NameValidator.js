@@ -17,7 +17,14 @@ export default class extends BaseValidator {
   }
   _checkFormat() {
     /*名前は必ず一つのスペースを含みます。名前には半角英数字のみが利用可能です。*/
-    const re = /[a-zA-Z0-9]+\s[a-zA-Z0-9]/
+    const re = /^([a-zA-Z]*)+\s+([a-zA-Z]*)$/
+
+    if() {//フォーマット(val?)が正しかったら
+      return resolve()
+    } else {//正しくなかったら
+      return reject()
+    }
   }
 
 }
+
