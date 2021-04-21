@@ -19,7 +19,7 @@ export default class extends BaseValidator {
     /*名前は必ず一つのスペースを含みます。名前には半角英数字のみが利用可能です。*/
     const re = /^([a-zA-Z]*)+\s+([a-zA-Z]*)$/
 
-    if() {//フォーマット(val?)が正しかったら
+    if(re.test(val) === true) {//フォーマット(val?)が正しかったら
       return resolve()
     } else {//正しくなかったら
       return reject()
