@@ -21,9 +21,9 @@ export default class extends BaseValidator {
     const valid = re.test(this.val);
 
     if(valid) {//フォーマット(val?)が正しかったら
-      return resolve()
+      return Promise.resolve()
     } else {//正しくなかったら
-      return reject()
+      return Promise.reject()
     }
   }
 
