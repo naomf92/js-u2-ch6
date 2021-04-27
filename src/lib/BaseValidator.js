@@ -4,6 +4,8 @@ export default class {
     this.typeName = typeName;
     this.type = type;
     this.result = {};
+    console.log(this.typeName);
+    console.log(this.type);
   }
   _cannotEmpty() {
     return new Promise((resolve, reject) => {

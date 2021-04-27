@@ -21,9 +21,15 @@ export default class extends BaseValidator {
     const valid = re.test(this.val);
 
     if(valid) {//フォーマット(val?)が正しかったら
+      console.log(Promise.resolve());
       return Promise.resolve()
     } else {//正しくなかったら
-      return Promise.reject()
+      console.log(Promise.reject());
+      return Promise.reject({
+        success: false,
+        message: `${this.typeName}のフォームが異なります`,
+        type: this.type
+      })
     }
   }
 
