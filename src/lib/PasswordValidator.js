@@ -7,6 +7,7 @@ export default class extends BaseValidator {
   }
   validate() {
     return super._cannotEmpty()
+      //.then(this._checkFormat)
       .then(this._checkLength)
       .then((res) => {
         return { success: true }; // Promise.resolve({ success: true })と同一
@@ -22,8 +23,26 @@ export default class extends BaseValidator {
       return Promise.reject({
         success: false,
         type: 'password',
-        message: 'パスワードが短すぎます。'
+        //message: 'パスワードが短すぎます。'
+        message: `${this.typeName}は半角英数字かつ必ず一文字以上の大文字と@_-.の記号を使用してください。`
       });
     }
   }
+  _checkFormat() {
+    const re = /^(?=.*[A-Z])(?=.*[_\.@\-])([a-zA-Z0-9_\.@\-]*)$/;
+    const valid = re.test(this.val);
+
+    if(valid) {//フォーマットが正しかったら
+      console.log(Promise.resolve());
+      return Promise.resolve()
+    } else {//正しくなかったら
+      console.log(Promise.reject());
+      return Promise.reject({
+        success: false,
+        type: this.type,
+        message: `${this.typeName}は半角英数字かつ必ず一文字以上の大文字と@_-.の記号を使用してください。`
+      })
+    }
+  }
+
 }

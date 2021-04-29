@@ -20,7 +20,7 @@ export default class extends BaseValidator {
     const re = /^([a-zA-Z]*)+\s+([a-zA-Z]*)$/;
     const valid = re.test(this.val);
 
-    if(valid) {//フォーマット(val?)が正しかったら
+    if(valid) {//フォーマットが正しかったら
       return Promise.resolve()
     } else {//正しくなかったら
       return Promise.reject({

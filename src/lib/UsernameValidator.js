@@ -20,15 +20,13 @@ export default class extends BaseValidator {
     const re = /^([a-zA-Z0-9_\.@\-]*)$/;
     const valid = re.test(this.val);
 
-    if(valid) {//フォーマット(val?)が正しかったら
-      console.log(Promise.resolve());
+    if(valid) {//フォーマットが正しかったら
       return Promise.resolve()
     } else {//正しくなかったら
-      console.log(Promise.reject());
       return Promise.reject({
         success: false,
         type: this.type,
-        message: '無効な文字が含まれています。'
+        message: `${this.typeName}には半角英数字、@_-.の記号を使用してください。`
       })
     }
 
