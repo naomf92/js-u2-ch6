@@ -23,8 +23,7 @@ export default class extends BaseValidator {
       return Promise.reject({
         success: false,
         type: 'password',
-        //message: 'パスワードが短すぎます。'
-        message: `${this.typeName}は半角英数字かつ必ず一文字以上の大文字と@_-.の記号を使用してください。`
+        message: 'パスワードが短すぎます。'
       });
     }
   }
