@@ -7,8 +7,8 @@ export default class extends BaseValidator {
   }
   validate() {
     return super._cannotEmpty()
-      //.then(this._checkFormat)
       .then(this._checkLength)
+      .then(this._checkFormat)
       .then((res) => {
         return { success: true }; // Promise.resolve({ success: true })と同一
       })
