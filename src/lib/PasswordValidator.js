@@ -4,6 +4,7 @@ export default class extends BaseValidator {
   constructor(val) {
     super(val, 'パスワード', 'password');
     this._checkLength = this._checkLength.bind(this);
+    this._checkFormat = this._checkFormat.bind(this);
   }
   validate() {
     return super._cannotEmpty()
