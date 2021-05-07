@@ -7,10 +7,12 @@ import 'whatwg-fetch'
 const endpoint = "http://localhost:3000"
 
 const validate = (params) => {
-  const name = params.name;
-  const email = params.email;
-  const password = params.password;
-  const username = params.username;
+  const {
+    name,
+    email,
+    password,
+    username
+  } = params;
   const mailValidator = new MailValidator(email);
   const passwordValidator = new PasswordValidator(password);
   const nameValidator = new NameValidator(name)
@@ -48,33 +50,28 @@ const signup = (params) => {
       Accept: 'application/json; charset=utf-8',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      name: params.name,
-      username: params.username,
-      email: params.email,
-      password: params.password
+    body: JSON.stringify(params)
+  })
+    .then((res) => {
+      const json = res.json();
+      if (res.status === 200) { // 登録成功
+        return json
+      } else { // 登録失敗
+        return Promise.reject(new Error('ユーザー登録失敗'))
+      }
     })
-  })
-  .then((res) => {
-    const json = res.json();
-    if (res.status === 200) { // 登録成功
-      return json
-    } else { // 登録失敗
-      return Promise.reject(new Error('ユーザー登録失敗'))
-    }
-  })
 }
 
 const onSubmit = async () => {
-  let email = document.getElementById('email');
-  let password = document.getElementById('password');
-  let username = document.getElementById('username');
-  let name = document.getElementById('name');
-  let emailVal = email.value;
-  let passwordVal = password.value;
-  let usernameVal = username.value;
-  let nameVal = name.value;
   await removeErrors()
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const username = document.getElementById('username');
+  const name = document.getElementById('name');
+  const emailVal = email.value;
+  const passwordVal = password.value;
+  const usernameVal = username.value;
+  const nameVal = name.value;
   const params = {
     email: emailVal,//メールアドレスの値
     password: passwordVal,//パスワードの値

@@ -35,7 +35,6 @@ export default class extends BaseValidator {
   _checkCapLetter() {
     const re = /[A-Z]+/;
     const valid = re.test(this.val);
-
     if(valid) {
       return Promise.resolve()
     } else {
@@ -49,7 +48,6 @@ export default class extends BaseValidator {
   _checkSymbol() {
     const re = /[_\.@\-]+/;
     const valid = re.test(this.val);
-
     if(valid) {
       return Promise.resolve()
     } else {
@@ -63,7 +61,6 @@ export default class extends BaseValidator {
   _checkFormat() {
     const re = /[a-z0-9]+/;
     const valid = re.test(this.val);
-
     if(valid) {//フォーマットが正しかったら
       return Promise.resolve()
     } else {//正しくなかったら
