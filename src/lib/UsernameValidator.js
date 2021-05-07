@@ -24,7 +24,7 @@ export default class extends BaseValidator {
       return Promise.reject({
         success: false,
         type: this.type,
-        message: `${this.typeName}には半角英数字と@_-.の記号を使用してください。`
+        message: `${this.typeName}には半角英数字、@_-.の記号を使用してください。`
       })
     }
 
