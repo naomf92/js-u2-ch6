@@ -24,7 +24,7 @@ export default class extends BaseValidator {
       return Promise.reject({
         success: false,
         type: this.type,
-        message: `${this.typeName}には半角英数字のみ利用可能です。また名字と名前をスペースで書く必要があります。`
+        message: `${this.typeName}のフォームが異なります。`
       })
     }
   }
